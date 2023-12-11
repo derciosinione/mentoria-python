@@ -29,3 +29,5 @@ for aluno in alunos:
     aluno["media"] = media
 
     print(f'A media do aluno {nome} eh {media}')
+
+
