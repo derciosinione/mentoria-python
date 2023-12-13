@@ -13,25 +13,17 @@ def anos_aniversario(lista_pessoas : list[dict[str, str]]):
   aniversarios = []
   
   for dados in lista_pessoas:
-    birthday = dados["birthday"].split('/')
-    ano = birthday[2]
-    nome = dados["name"]
-    
-    nomes.append(nome)
+    ano = dados["birthday"].split('/')[-1]
     aniversarios.append(ano)
-    
+    nomes.append(dados["name"])
     dicionario_final[ano] = []
 
-
-  for index in range(len(nomes)):
-    if(aniversarios[index] in dicionario_final):
-      valor = dicionario_final[aniversarios[index]]
-      valor.append(nomes[index])
-      
+  for posicao in range(len(nomes)):
+    if(aniversarios[posicao] in dicionario_final):
+      dicionario_final[aniversarios[posicao]].append(nomes[posicao])      
+  
   return dicionario_final
-    
-
-    
+        
 pessoas = [{'name':'José', 'birthday':'25/11/1977'}, 
            {'name': 'Maria','birthday':'25/11/1986'},
            {'name': 'Pedro', 'birthday':'25/10/1972'},
